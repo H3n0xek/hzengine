@@ -14,19 +14,13 @@ class Repository:
     vcs_url = None # URL репозитория
     repodir = None # директория репозитория    
 
-    def __init__(self, applist, vcs, vcs_url, repodir):
-        self.app_list = applist
-        self.vcs = vcs
-        self.vcs_url = vcs_url
-        self.repodir = repodir    
-
     def fetch(self):
         if self.vcs == GIT:
             local('git clone %s %s' % (self.vcs_url, self.repodir))
         elif self.vcs == MERCURIAL:
             local('hg clone %s %s' %  (self.vcs_url, self.repodir))
         else:
-            raise ValueError, 
+            raise ValueError, \
                   'Invalid vcs: %d (%s)' % (self.vcs, self.vcs_url)
 
     def install(self):
@@ -35,7 +29,7 @@ class Repository:
             local('cd %s && ln -s %s %s' % (
                        self.repodir,
                        os.path.join(self.repodir, app),
-                       os.path.join(PROJECT_DIR, app))
+                       os.path.join(PROJECT_DIR, app)))
     
     def update(self):
         if self.vcs == GIT:
@@ -43,7 +37,7 @@ class Repository:
         elif self.vcs == MERCURIAL:
             local('cd %s && hg pull' % self.repodir)
         else:
-            raise ValueError,
+            raise ValueError, \
                   'Invalid vcs: %d (%s)' % (self.vcs, self.vcs_url)
 
 

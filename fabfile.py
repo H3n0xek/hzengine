@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from fabric.operations import local
 from fabric.colors import red, green, white
-from hzdeploy.utils import Repository
-from hzdeploy.repositories import all as all_repos
+from utils import Repository
+from repositories import all as all_repos
 import os
 
 PROJECT_DIR = os.path.split(os.path.realpath(__file__))[0]

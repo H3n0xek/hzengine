@@ -13,9 +13,5 @@ except ImportError:
 
 import settings
 
-# Adding applications dirs
-sys.path.append(PARENT_DIR)
-sys.path.append(os.path.join(PARENT_DIR, 'diario_extras'))
-
 if __name__ == "__main__":
     execute_manager(settings)

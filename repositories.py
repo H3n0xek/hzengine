@@ -1,11 +1,11 @@
-from hzdeploy.utils import Repository, MERCURIAL, GIT
+from utils import Repository, MERCURIAL, GIT
 import os
 
 PROJECT_DIR = os.path.split(os.path.realpath(__file__))[0]
 REPO_DIR = os.path.join(PROJECT_DIR, '.repos')
 
 class django_diario(Repository):
-    app_list = [ 'diairo' ]
+    app_list = [ 'diario' ]
     vcs = MERCURIAL
     vcs_url = 'http://bitbucket.org/semente/django-diario'
     repodir = os.path.join(REPO_DIR, 'django-diario')
@@ -32,6 +32,7 @@ class django_vlfa(Repository):
     repodir = os.path.join(REPO_DIR, 'django-vlfa')
 
 
-all = [ django_diario, diario_extras, django_registration,
-            django_vlfa, ]
+repos = [ django_diario, diario_extras, django_registration, django_vlfa ]
+
+all = [ repo() for repo in repos ]
 
