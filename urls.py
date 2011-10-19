@@ -18,9 +18,9 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.urls')),
     url(r'^', include('diario.urls.entries')),
     url(r'^author/', include('diario.urls.entries_by_author')), 
-    url(r'^forum/', include('vlfa.urls.categories')),
-    url(r'^forum/', include('vlfa.urls.topics')),
-    url(r'^forum/', include('vlfa.urls.posts')),
+#    url(r'^forum/', include('vlfa.urls.categories')),
+#    url(r'^forum/', include('vlfa.urls.topics')),
+#    url(r'^forum/', include('vlfa.urls.posts')),
 )
 
 if settings.DEBUG:
