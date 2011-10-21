@@ -132,7 +132,6 @@ INSTALLED_APPS = (
     'vlfa_moderation',
     'south',
 #    'hackprofile',
-    'django_evolution',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
