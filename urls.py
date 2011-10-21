@@ -5,6 +5,8 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+from django.shortcuts import render
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'www.views.home', name='home'),
@@ -16,8 +18,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.urls')),
-    url(r'^', include('diario.urls.entries')),
+    url(r'^blog/', include('diario.urls.entries')),
     url(r'^author/', include('diario.urls.entries_by_author')), 
+    url(r'^$', view=render, name='mainpage', kwargs={
+					'template_name': 'mainpage.html'}),
 #    url(r'^forum/', include('vlfa.urls.categories')),
 #    url(r'^forum/', include('vlfa.urls.topics')),
 #    url(r'^forum/', include('vlfa.urls.posts')),
